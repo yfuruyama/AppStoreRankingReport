@@ -11,7 +11,7 @@ var APPSTORE_FEED_URL = 'https://itunes.apple.com/jp/rss/topfreeapplications/lim
 var APP_NAME = 'Twitter';
 
 // Interval between reporting(minutes)
-var REPORT_INTERVAL = 60;
+var REPORT_INTERVAL = 30;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,10 +68,17 @@ function write(sheet, row, column, data) {
 
 /* Trigger Settings */
 function createTimeTrigger() {
-  var reportTrigger = ScriptApp.newTrigger('report')
-      .timeBased()
-      .everyMinutes(REPORT_INTERVAL)
-      .create();
+  var intervalHour = REPORT_INTERVAL / 60;
+  var intervalDay = intervalHour / 24;
+  
+  var reportTrigger = ScriptApp.newTrigger('report').timeBased();
+  if (intervalDay >= 1.0) {
+    reportTrigger = reportTrigger.everyDays(intervalDay).create();
+  } else if (intervalHour >= 1.0) {
+    reportTrigger = reportTrigger.everyHours(intervalHour).create();
+  } else {
+    reportTrigger = reportTrigger.everyMinutes(REPORT_INTERVAL).create();
+  }
   
   Logger.log('Unique ID of Trigger: %s', reportTrigger.getUniqueId());
 }
