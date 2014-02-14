@@ -2,6 +2,8 @@ AppStoreRankingReport
 ======================
 This tool reports AppStore ranking of an app to Google Spreadsheet periodically.
 
+![screenshot](https://raw.github.com/addsict/AppStoreRankingReport/master/img/appstorerank.png)
+
 How to use
 ----------
 1. Create a new Spreadsheet on your Google Drive.
