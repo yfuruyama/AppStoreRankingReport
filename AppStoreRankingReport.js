@@ -5,7 +5,7 @@
 // RSS feed url for AppStore
 // You can generate feed url at https://rss.itunes.apple.com/jp/?urlDesc=%2Fgenerator
 // ATTENSION: Replace the end of feed url with '/json'
-var APPSTORE_FEED_URL = 'https://itunes.apple.com/jp/rss/topfreeapplications/limit=300/json'
+var APPSTORE_FEED_URL = 'https://itunes.apple.com/jp/rss/topfreeapplications/limit=200/json'
 
 // App Name
 var APP_NAME = 'Twitter';
@@ -48,7 +48,7 @@ function searchAppRank(app, entries) {
     }
   }
   // outside ranking
-  return 300;
+  return 200;
 }
 
 /* Spreadsheet */
